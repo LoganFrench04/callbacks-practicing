@@ -38,12 +38,24 @@ console.log(result6);   // true
 *******************************************************************************/
 
 function one(array, cb) {
-  // Your code here
+  for (let i = 0; i < array.length; i++) {
+    if (array.includes(cb(array[i], i) > 1)) {
+      return false
+    } else {
+      return true
+    }
+
+
+  }
 }
 
+let result1 = one(['x', 'y', 'z'], function (el) {
+  return el === 'a';
+});
+console.log(result1);   // false
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
   module.exports = one;
-} catch(e) {
+} catch (e) {
   return null;
 }
