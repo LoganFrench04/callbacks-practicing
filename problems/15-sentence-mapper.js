@@ -27,11 +27,26 @@ console.log(result2); // 'ths s prtty cl rght'
 
 let sentenceMapper = function (sentence, cb) {
   let words = sentence.split(' ')
-  const mapWords = cb(words)
+  const mapWords = words.map(word => {
+    return cb(word)
+  });
+  return mapWords.join(' ')
 
 };
 
+let removeVowels = function (word) {
+  let newWord = "";
+  for (let i = 0; i < word.length; i++) {
+    let char = word[i];
+    if (!"aeiou".includes(char)) {
+      newWord += char;
+    }
+  }
+  return newWord;
+};
 
+let result2 = sentenceMapper("this is pretty cool right", removeVowels);
+console.log(result2); // 'ths s prtty cl rght'
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
   module.exports = sentenceMapper;
