@@ -21,14 +21,18 @@ let result3 = firstIndex(['canine', 'feline', 'tree'], function (s) {
 });
 console.log(result3); // -1
 *******************************************************************************/
-
+// advanced array find method
 function firstIndex(array, cb) {
-  // Your code here
+  if (array.find(el => {
+    cb(el)
+  })) {
+    return
+  }
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
   module.exports = firstIndex;
-} catch(e) {
+} catch (e) {
   return null;
 }

@@ -38,15 +38,11 @@ console.log(result6);   // true
 *******************************************************************************/
 
 function one(array, cb) {
-  for (let i = 0; i < array.length; i++) {
-    if (array.includes(cb(array[i], i) > 1)) {
-      return false
-    } else {
-      return true
-    }
-
-
-  }
+  let count = 0
+  array.forEach((el, i) => {
+    if (cb(el, i)) { count++ }
+  })
+  return count === 1
 }
 
 let result1 = one(['x', 'y', 'z'], function (el) {
