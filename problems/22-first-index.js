@@ -23,10 +23,16 @@ console.log(result3); // -1
 *******************************************************************************/
 // advanced array find method
 function firstIndex(array, cb) {
-  if (array.find(el => {
-    cb(el)
-  })) {
-    return
+  let index
+  let found = array.find((el, i) => {
+    if (cb(el)) index = i
+    return cb(el)
+  })
+  if (found) {
+    return index
+  }
+  else {
+    return -1
   }
 }
 
