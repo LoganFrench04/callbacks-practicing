@@ -29,8 +29,18 @@ console.log(result4);   // false
 *******************************************************************************/
 
 function none(array, cb) {
-  // Your code here
+  let count = 0
+  array.forEach((el) => {
+    if (cb(el)) { count++ }
+  })
+  return count === 0
 }
+
+
+let result1 = none(['ruby', 'topaz', 'opal'], function (w) {
+  return w.includes('e');
+});
+console.log(result1);   // true
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
